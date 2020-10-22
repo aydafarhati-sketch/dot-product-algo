@@ -1,0 +1,60 @@
+PROCEDURE dot_product (VAR dot:INTEGER,  v1,v2: ARRAY-OF INTEGER)
+VAR
+    i : INTEGER;
+BEGIN
+    dot :=0;
+    i:=0;
+    IF (v1.length <> v2.length) THEN
+        dot := NaN; 
+    END_IF
+    WHILE (i <v1.length ) DO
+        dot := dot + v1[i]*v2[i];
+    END_WHILE
+END
+ALGORITHM calcul_ortho_vectors
+VAR 
+dot: INTEGER
+v1,v2 : ARRAY_OF INTEGER [50];
+BEGIN
+n1:=read_size();
+read_array(n1,v1);
+n2:=read_size();
+read_array(n2,v2);
+dot_product(dot, v1,v2)
+IF (dot:=0) THEN
+Write("v1 and v2 are orthogonal")
+ELSE
+Write("v1 and v2 are not orthogonal")
+END_IF
+END
+
+FUNCTION dot_product (v1,v2: ARRAY_OF INTEGER)
+VAR
+i:INTEGER
+BEGIN
+dot:=0
+i:=0
+IF (v1.length <> v2.length) THEN
+RETURN NAN;
+WHILE (i<v1.length) DO
+dot:=dot+v1[i]*v2[i];
+END_WHILE
+RETURN DOT
+END
+
+ALGORITHM calcul_ortho_vectors
+VAR 
+dot: INTEGER
+v1,v2 : ARRAY_OF INTEGER [50];
+BEGIN
+n1:=read_size();
+read_array(n1,v1);
+n2:=read_size();
+read_array(n2,v2);
+dot:=dot_product(v1,v2)
+IF (dot:=0) THEN
+Write("v1 and v2 are orthogonal")
+ELSE
+Write("v1 and v2 are not orthogonal")
+END_IF
+END
